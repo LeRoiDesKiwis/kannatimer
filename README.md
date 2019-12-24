@@ -10,4 +10,4 @@ Go on the project directory and do **npm install**. Then, do **node index.js** a
 # screenshots
 A beautiful screenshot of kanna timer :3 :
 
-![screen1](https://i.imgur.com/UIlKx63.png)
+![screen1](https://i.imgur.com/68zkvSj.png)
