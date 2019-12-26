@@ -3,7 +3,7 @@ const rpc = new DiscordRPC.Client({transport: 'ipc'});
 
 function setActivity(){
     
-    const noel = Date.UTC(2019, 12, 24, 18, 0, 0, 0);
+    const noel = Date.UTC(2019, 12, 24, 19, 0, 0, 0);
     const now = Date.now();
     const difference = new Date(noel-now)
 
@@ -14,7 +14,7 @@ function setActivity(){
 
     rpc.setActivity({
         details: `${days} days ${hours}h ${minutes}min ${seconds}s`,
-        state:'Attends la veille de Noël',
+        state:'Attends ses cadeaux',
         largeImageKey: 'kanna',
     });
 }
