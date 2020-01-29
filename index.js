@@ -1,9 +1,11 @@
+const options = require('./options.json');
+
 const DiscordRPC = require('discord-rpc');
 const rpc = new DiscordRPC.Client({transport: 'ipc'});
 
 function setActivity(){
-    
-    const noel = Date.UTC(2019, 12, 24, 19, 0, 0, 0);
+
+    const noel = Date.UTC(options.year, options.month, options.day, options.hour, options.minutes, options.seconds, 0);
     const now = Date.now();
     const difference = new Date(noel-now)
 
@@ -14,7 +16,7 @@ function setActivity(){
 
     rpc.setActivity({
         details: `${days} days ${hours}h ${minutes}min ${seconds}s`,
-        state:'Attends ses cadeaux',
+        state:`Attends ${options.waiting}`,
         largeImageKey: 'kanna',
     });
 }
@@ -26,4 +28,4 @@ rpc.on('ready', () => {
     setInterval(() => setActivity(), 1e3)
 })
 
-rpc.login({clientId: '658344804513611777'})
+rpc.login({clientId: options.id})
