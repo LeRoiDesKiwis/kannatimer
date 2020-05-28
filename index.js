@@ -18,6 +18,7 @@ function setActivity(){
         details: `${days} days ${hours}h ${minutes}min ${seconds}s`,
         state:`Attends ${options.waiting}`,
         largeImageKey: options.image,
+		endTimestamp: noel
     });
 }
 
