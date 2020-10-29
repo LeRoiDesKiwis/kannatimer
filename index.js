@@ -1,18 +1,13 @@
 const options = require('./options.json');
-
+const secConverter = require("seconds-converter")
 const DiscordRPC = require('discord-rpc');
 const rpc = new DiscordRPC.Client({transport: 'ipc'});
 
 function setActivity(){
 
-    const noel = Date.UTC(options.year, options.month, options.day, options.hour, options.minutes, options.seconds, 0);
+    const noel = new Date(options.year, options.month-1, options.day, options.hour, options.minutes, options.seconds, 0);
     const now = Date.now();
-    const difference = new Date(noel-now)
-
-    const seconds = difference.getUTCSeconds();
-    const minutes = difference.getUTCMinutes();
-    const hours = difference.getUTCHours()-2;
-    const days = difference.getUTCDate()-1;
+    const {days, hours, minutes, seconds} = secConverter(noel - now, "ms")
 
     rpc.setActivity({
         details: `${days} days ${hours}h ${minutes}min ${seconds}s`,
